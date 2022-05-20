@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/drawable/btn_shape.xml" value="0.2015" />
+        <entry key="app/src/main/res/drawable/gradient.xml" value="0.224" />
+        <entry key="app/src/main/res/drawable/gradient_desc_bg.xml" value="0.2015" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2640625" />
+        <entry key="app/src/main/res/layout/fragment_details.xml" value="0.26328125" />
+        <entry key="app/src/main/res/layout/fragment_details_copy.xml" value="0.2640625" />
+        <entry key="app/src/main/res/layout/fragment_gallery.xml" value="0.2640625" />
+        <entry key="app/src/main/res/layout/fragment_search.xml" value="0.2640625" />
+        <entry key="app/src/main/res/layout/item_itunes_search.xml" value="0.2640625" />
+        <entry key="app/src/main/res/layout/item_unsplash_photo.xml" value="0.35104166666666664" />
+        <entry key="app/src/main/res/layout/itunes_search_load_state_footer.xml" value="0.2640625" />
+        <entry key="app/src/main/res/layout/toolbar.xml" value="0.1673611111111111" />
+        <entry key="app/src/main/res/layout/unsplash_photo_load_state_footer.xml" value="0.2640625" />
+        <entry key="app/src/main/res/menu/menu.xml" value="0.2640625" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
