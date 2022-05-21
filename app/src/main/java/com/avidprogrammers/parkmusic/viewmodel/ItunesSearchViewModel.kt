@@ -23,7 +23,7 @@ class ItunesSearchViewModel @ViewModelInject constructor(
     }
 
     companion object {
-        private const val DEFAULT_QUERY = "jack johnson"
+        private const val DEFAULT_QUERY = ""
     }
 
 }

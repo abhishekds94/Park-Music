@@ -17,7 +17,7 @@ object AppModule {
     @Singleton
     fun provideRetrofit(): Retrofit =
         Retrofit.Builder()
-            .baseUrl(ItunesSearchApi.BASE_URL)
+            .baseUrl(ItunesSearchApi.BASE_URL_ITUNES)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 

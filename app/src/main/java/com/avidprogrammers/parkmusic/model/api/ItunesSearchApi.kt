@@ -13,7 +13,7 @@ interface ItunesSearchApi {
     ): ItunesSearchResponse
 
     companion object {
-        const val BASE_URL = "https://itunes.apple.com/"
+        const val BASE_URL_ITUNES = "https://itunes.apple.com/"
     }
 
 }
