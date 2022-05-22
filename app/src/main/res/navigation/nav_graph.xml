@@ -3,7 +3,7 @@
 xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools"
 android:id="@+id/nav_graph"
-app:startDestination="@id/artistsFragment">
+app:startDestination="@id/zeroFragment">
 
 <fragment
     android:id="@+id/searchFragment"
@@ -24,9 +24,9 @@ app:startDestination="@id/artistsFragment">
         app:argType="com.avidprogrammers.parkmusic.model.data.ItunesSearch" />
 </fragment>
     <fragment
-        android:id="@+id/artistsFragment"
-        android:name="com.avidprogrammers.parkmusic.view.artists.ArtistsFragment"
-        tools:layout="@layout/fragment_artists">
+        android:id="@+id/zeroFragment"
+        android:name="com.avidprogrammers.parkmusic.view.zeroState.ZeroStateFragment"
+        tools:layout="@layout/fragment_zero_state">
         <action
             android:id="@+id/toSearchFragment"
             app:destination="@id/searchFragment"/>

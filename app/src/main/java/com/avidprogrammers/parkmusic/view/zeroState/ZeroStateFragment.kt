@@ -1,4 +1,4 @@
-package com.avidprogrammers.parkmusic.view.artists
+package com.avidprogrammers.parkmusic.view.zeroState
 
 import android.os.Bundle
 import android.view.Menu
@@ -13,19 +13,19 @@ import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.avidprogrammers.parkmusic.MainActivity
 import com.avidprogrammers.parkmusic.R
-import com.avidprogrammers.parkmusic.databinding.FragmentArtistsBinding
+import com.avidprogrammers.parkmusic.databinding.FragmentZeroStateBinding
 import com.avidprogrammers.parkmusic.model.data.Artist
 import com.avidprogrammers.parkmusic.view.adapter.ArtistsAdapter
 import com.avidprogrammers.parkmusic.view.search.ItunesSearchLoadStateAdapter
-import com.avidprogrammers.parkmusic.viewmodel.ArtistsSearchViewModel
+import com.avidprogrammers.parkmusic.viewmodel.ZeroStateViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ArtistsFragment: Fragment(R.layout.fragment_artists), ArtistsAdapter.OnItemClickListener {
+class ZeroStateFragment: Fragment(R.layout.fragment_zero_state), ArtistsAdapter.OnItemClickListener {
 
-    private val viewModel by viewModels<ArtistsSearchViewModel>()
+    private val viewModel by viewModels<ZeroStateViewModel>()
 
-    private var _binding: FragmentArtistsBinding? = null
+    private var _binding: FragmentZeroStateBinding? = null
     private val binding get() = _binding!!
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -33,7 +33,7 @@ class ArtistsFragment: Fragment(R.layout.fragment_artists), ArtistsAdapter.OnIte
 
         (requireActivity() as MainActivity).supportActionBar?.title = "Park Music"
 
-        _binding = FragmentArtistsBinding.bind(view)
+        _binding = FragmentZeroStateBinding.bind(view)
 
         val adapter = ArtistsAdapter(this)
 
@@ -111,6 +111,6 @@ class ArtistsFragment: Fragment(R.layout.fragment_artists), ArtistsAdapter.OnIte
     }
 
     private fun toSearchFragment(query: String) {
-        findNavController().navigate(ArtistsFragmentDirections.toSearchFragment(query))
+        findNavController().navigate(ZeroStateFragmentDirections.toSearchFragment(query))
     }
 }

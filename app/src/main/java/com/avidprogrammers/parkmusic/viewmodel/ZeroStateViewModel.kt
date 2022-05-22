@@ -10,7 +10,7 @@ import androidx.paging.liveData
 import com.avidprogrammers.parkmusic.model.data.Artist
 import com.avidprogrammers.parkmusic.model.data.ArtistsSearchRepository
 
-class ArtistsSearchViewModel @ViewModelInject constructor(
+class ZeroStateViewModel @ViewModelInject constructor(
     private val repository: ArtistsSearchRepository
 ): ViewModel() {
 
