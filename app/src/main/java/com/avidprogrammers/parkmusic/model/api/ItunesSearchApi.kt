@@ -12,8 +12,8 @@ interface ItunesSearchApi {
         @Query("limit") limit: Int
     ): ItunesSearchResponse
 
-    companion object {
-        const val BASE_URL_ITUNES = "https://itunes.apple.com/"
-    }
+
+    @GET("personal/songs.json")
+    suspend fun topSongsResults(): ItunesSearchResponse
 
 }

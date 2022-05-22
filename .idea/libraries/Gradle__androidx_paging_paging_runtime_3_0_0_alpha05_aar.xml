@@ -1,11 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.paging:paging-runtime:3.0.0-alpha05@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2de930fc459453a1cfa34803a17e9a34/paging-runtime-3.0.0-alpha05/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/404d261c46c14aeeef94d60464d6353d/paging-runtime-3.0.0-alpha05/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/da6be16044ba5027b85b60fa4973ed22/paging-runtime-3.0.0-alpha05/AndroidManifest.xml" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/da6be16044ba5027b85b60fa4973ed22/paging-runtime-3.0.0-alpha05/res" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/da6be16044ba5027b85b60fa4973ed22/paging-runtime-3.0.0-alpha05/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/da6be16044ba5027b85b60fa4973ed22/paging-runtime-3.0.0-alpha05/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/da6be16044ba5027b85b60fa4973ed22/paging-runtime-3.0.0-alpha05/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

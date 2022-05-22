@@ -8,10 +8,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.16296296296296298" />
         <entry key="app/src/main/res/drawable/btn_shape.xml" value="0.2015" />
         <entry key="app/src/main/res/drawable/gradient.xml" value="0.224" />
         <entry key="app/src/main/res/drawable/gradient_desc_bg.xml" value="0.2015" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2640625" />
+        <entry key="app/src/main/res/layout/authors_fragment.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_artists.xml" value="0.261003861003861" />
         <entry key="app/src/main/res/layout/fragment_details.xml" value="0.26328125" />
         <entry key="app/src/main/res/layout/fragment_details_copy.xml" value="0.2640625" />
         <entry key="app/src/main/res/layout/fragment_gallery.xml" value="0.2640625" />

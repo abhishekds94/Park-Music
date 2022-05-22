@@ -9,6 +9,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.paging.LoadState
 import com.avidprogrammers.parkmusic.MainActivity
 import com.avidprogrammers.parkmusic.R
@@ -22,12 +23,14 @@ import dagger.hilt.android.AndroidEntryPoint
 class ItunesSearchFragment: Fragment(R.layout.fragment_search), ItunesSearchAdapter.OnItemClickListener {
 
     private val viewModel by viewModels<ItunesSearchViewModel>()
+    private val args = navArgs<ItunesSearchFragmentArgs>()
 
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
 
         (requireActivity() as MainActivity).supportActionBar?.title = "Park Music"
 
@@ -71,6 +74,8 @@ class ItunesSearchFragment: Fragment(R.layout.fragment_search), ItunesSearchAdap
         }
 
         setHasOptionsMenu(true)
+
+        viewModel.searchResults(args.value.query)
     }
 
     override fun onItemClick(search: ItunesSearch) {

@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Park Music</string>
+    <string name="artists_weekly">Top Artists of this Week</string>
+    <string name="error_results">Results could not be loaded</string>
+    <string name="retry">Retry</string>
+    <string name="query_no_results">No results found for this query</string>
+    <string name="about_song">About Song</string>
+    <string name="song_description">Song Description</string>
 </resources>

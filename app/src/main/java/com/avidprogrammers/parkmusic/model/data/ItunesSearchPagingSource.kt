@@ -19,6 +19,8 @@ class ItunesPagingSource(
             val response = itunesSearchApi.searchResults(query, position, params.loadSize)
             val search = response.results
 
+            search ?: return LoadResult.Page(emptyList(), prevKey = if (position == ITUNES_STARTING_PAGE_INDEX) null else position - 1, nextKey = null)
+
             LoadResult.Page(
                 data = search,
                 prevKey = if (position == ITUNES_STARTING_PAGE_INDEX) null else position - 1,

@@ -3,7 +3,7 @@
 xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools"
 android:id="@+id/nav_graph"
-app:startDestination="@id/searchFragment">
+app:startDestination="@id/artistsFragment">
 
 <fragment
     android:id="@+id/searchFragment"
@@ -12,6 +12,8 @@ app:startDestination="@id/searchFragment">
     <action
         android:id="@+id/action_searchFragment_to_detailsFragment"
         app:destination="@id/detailsFragment" />
+    <argument app:argType="string"
+        android:name="query" />
 </fragment>
 <fragment
     android:id="@+id/detailsFragment"
@@ -21,4 +23,12 @@ app:startDestination="@id/searchFragment">
         android:name="search"
         app:argType="com.avidprogrammers.parkmusic.model.data.ItunesSearch" />
 </fragment>
+    <fragment
+        android:id="@+id/artistsFragment"
+        android:name="com.avidprogrammers.parkmusic.view.artists.ArtistsFragment"
+        tools:layout="@layout/fragment_artists">
+        <action
+            android:id="@+id/toSearchFragment"
+            app:destination="@id/searchFragment"/>
+    </fragment>
 </navigation>
