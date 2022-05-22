@@ -29,19 +29,19 @@ object AppModule {
 
     @Provides
     @Singleton
-    @Named("songs")
-    fun provideTopSongsSearchApi(): Retrofit {
+    @Named("artists")
+    fun provideTopArtistsSearchApi(): Retrofit {
         val gsonBuilder = GsonBuilder()
         gsonBuilder.registerTypeAdapter(ArtistsSearchResponse::class.java, ArtistJsonDeserializer())
         return Retrofit.Builder()
-            .baseUrl(ApiConstants.BASE_URL_TOP_SONGS)
+            .baseUrl(ApiConstants.BASE_URL_TOP_WEEKLY)
             .addConverterFactory(GsonConverterFactory.create(gsonBuilder.create()))
             .build()
     }
 
     @Provides
     @Singleton
-    fun provideArtistsSearchApi(@Named("songs") retrofit: Retrofit): ArtistsSearchApi =
+    fun provideArtistsSearchApi(@Named("artists") retrofit: Retrofit): ArtistsSearchApi =
         retrofit.create(ArtistsSearchApi::class.java)
 
     @Provides

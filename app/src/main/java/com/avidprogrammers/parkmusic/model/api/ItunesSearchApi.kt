@@ -12,8 +12,4 @@ interface ItunesSearchApi {
         @Query("limit") limit: Int
     ): ItunesSearchResponse
 
-
-    @GET("personal/songs.json")
-    suspend fun topSongsResults(): ItunesSearchResponse
-
 }
