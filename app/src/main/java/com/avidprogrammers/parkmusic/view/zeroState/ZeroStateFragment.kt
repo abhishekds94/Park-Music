@@ -15,15 +15,18 @@ import com.avidprogrammers.parkmusic.MainActivity
 import com.avidprogrammers.parkmusic.R
 import com.avidprogrammers.parkmusic.databinding.FragmentZeroStateBinding
 import com.avidprogrammers.parkmusic.model.data.Artist
+import com.avidprogrammers.parkmusic.model.data.Songs
 import com.avidprogrammers.parkmusic.view.adapter.ArtistsAdapter
+import com.avidprogrammers.parkmusic.view.adapter.SongsAdapter
 import com.avidprogrammers.parkmusic.view.search.ItunesSearchLoadStateAdapter
 import com.avidprogrammers.parkmusic.viewmodel.ZeroStateViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ZeroStateFragment: Fragment(R.layout.fragment_zero_state), ArtistsAdapter.OnItemClickListener {
+class ZeroStateFragment: Fragment(R.layout.fragment_zero_state), ArtistsAdapter.OnItemClickListener, SongsAdapter.OnItemClickListener {
 
     private val viewModel by viewModels<ZeroStateViewModel>()
+    private val viewModelSongs by viewModels<ZeroStateViewModel>()
 
     private var _binding: FragmentZeroStateBinding? = null
     private val binding get() = _binding!!
@@ -35,37 +38,73 @@ class ZeroStateFragment: Fragment(R.layout.fragment_zero_state), ArtistsAdapter.
 
         _binding = FragmentZeroStateBinding.bind(view)
 
-        val adapter = ArtistsAdapter(this)
+        val adapterArtist = ArtistsAdapter(this)
+        val adapterSongs = SongsAdapter(this)
 
         binding.apply {
-            recyclerView.setHasFixedSize(true)
-            recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL ,false)
-            recyclerView.itemAnimator = null
-            recyclerView.adapter = adapter.withLoadStateHeaderAndFooter(
-                header = ItunesSearchLoadStateAdapter { adapter.retry() },
-                footer = ItunesSearchLoadStateAdapter { adapter.retry() },
+            recyclerViewArtists.setHasFixedSize(true)
+            recyclerViewArtists.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL ,false)
+            recyclerViewArtists.itemAnimator = null
+            recyclerViewArtists.adapter = adapterArtist.withLoadStateHeaderAndFooter(
+                header = ItunesSearchLoadStateAdapter { adapterArtist.retry() },
+                footer = ItunesSearchLoadStateAdapter { adapterArtist.retry() },
             )
             buttonRetry.setOnClickListener {
-                adapter.retry()
+                adapterArtist.retry()
+            }
+        }
+
+        binding.apply {
+            recyclerViewSongs.setHasFixedSize(true)
+            recyclerViewSongs.itemAnimator = null
+            recyclerViewSongs.adapter = adapterSongs.withLoadStateHeaderAndFooter(
+                header = ItunesSearchLoadStateAdapter { adapterSongs.retry() },
+                footer = ItunesSearchLoadStateAdapter { adapterSongs.retry() },
+            )
+            buttonRetry.setOnClickListener {
+                adapterSongs.retry()
             }
         }
 
         viewModel.artists.observe(viewLifecycleOwner) {
-            adapter.submitData(viewLifecycleOwner.lifecycle, it)
+            adapterArtist.submitData(viewLifecycleOwner.lifecycle, it)
         }
 
-        adapter.addLoadStateListener { loadState ->
+        viewModel.songs.observe(viewLifecycleOwner) {
+            adapterSongs.submitData(viewLifecycleOwner.lifecycle, it)
+        }
+
+        adapterArtist.addLoadStateListener { loadState ->
             binding.apply {
                 progressBar.isVisible = loadState.source.refresh is LoadState.Loading
-                recyclerView.isVisible = loadState.source.refresh is LoadState.NotLoading
+                recyclerViewArtists.isVisible = loadState.source.refresh is LoadState.NotLoading
                 buttonRetry.isVisible = loadState.source.refresh is LoadState.Error
                 textViewError.isVisible = loadState.source.refresh is LoadState.Error
 
                 // empty view
                 if (loadState.source.refresh is LoadState.NotLoading &&
                     loadState.append.endOfPaginationReached &&
-                    adapter.itemCount < 1) {
-                    recyclerView.isVisible = false
+                    adapterArtist.itemCount < 1) {
+                    recyclerViewArtists.isVisible = false
+                    textViewEmpty.isVisible = true
+                } else {
+                    textViewEmpty.isVisible = false
+                }
+            }
+        }
+
+        adapterSongs.addLoadStateListener { loadState ->
+            binding.apply {
+                progressBar.isVisible = loadState.source.refresh is LoadState.Loading
+                recyclerViewSongs.isVisible = loadState.source.refresh is LoadState.NotLoading
+                buttonRetry.isVisible = loadState.source.refresh is LoadState.Error
+                textViewError.isVisible = loadState.source.refresh is LoadState.Error
+
+                // empty view
+                if (loadState.source.refresh is LoadState.NotLoading &&
+                    loadState.append.endOfPaginationReached &&
+                    adapterSongs.itemCount < 1) {
+                    recyclerViewSongs.isVisible = false
                     textViewEmpty.isVisible = true
                 } else {
                     textViewEmpty.isVisible = false
@@ -92,7 +131,7 @@ class ZeroStateFragment: Fragment(R.layout.fragment_zero_state), ArtistsAdapter.
             override fun onQueryTextSubmit(query: String?): Boolean {
 
                 if (query != null) {
-                    binding.recyclerView.scrollToPosition(0)
+                    binding.recyclerViewArtists.scrollToPosition(0)
                     searchView.clearFocus()
                     toSearchFragment(query)
                 }
@@ -112,5 +151,9 @@ class ZeroStateFragment: Fragment(R.layout.fragment_zero_state), ArtistsAdapter.
 
     private fun toSearchFragment(query: String) {
         findNavController().navigate(ZeroStateFragmentDirections.toSearchFragment(query))
+    }
+
+    override fun onItemClick(item: Songs) {
+        toSearchFragment(item.trackName)
     }
 }

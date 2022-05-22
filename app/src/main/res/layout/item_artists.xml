@@ -4,6 +4,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:layout_margin="5dp"
+    android:gravity="center"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -26,9 +27,10 @@
         android:id="@+id/artistName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Nuclea"
+        tools:text="Image Dragons"
         android:layout_marginTop="5dp"
         android:textColor="#fff"
+        tools:textColor="#000"
         android:fontFamily="@font/poppins_medium"
         android:layout_gravity="center"/>
 

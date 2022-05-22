@@ -19,6 +19,7 @@
         <entry key="app/src/main/res/layout/fragment_details_copy.xml" value="0.2640625" />
         <entry key="app/src/main/res/layout/fragment_gallery.xml" value="0.2640625" />
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.2640625" />
+        <entry key="app/src/main/res/layout/fragment_zero_state.xml" value="0.2640625" />
         <entry key="app/src/main/res/layout/item_artists.xml" value="0.2640625" />
         <entry key="app/src/main/res/layout/item_itunes_search.xml" value="0.2640625" />
         <entry key="app/src/main/res/layout/item_songs.xml" value="0.2640625" />

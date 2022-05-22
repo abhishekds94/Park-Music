@@ -1,10 +1,8 @@
 package com.avidprogrammers.parkmusic.model.di
 
-import com.avidprogrammers.parkmusic.model.api.ApiConstants
-import com.avidprogrammers.parkmusic.model.api.ArtistsSearchApi
-import com.avidprogrammers.parkmusic.model.api.ArtistsSearchResponse
-import com.avidprogrammers.parkmusic.model.api.ItunesSearchApi
+import com.avidprogrammers.parkmusic.model.api.*
 import com.avidprogrammers.parkmusic.model.api.serializer.ArtistJsonDeserializer
+import com.avidprogrammers.parkmusic.model.api.serializer.SongsJsonDeserializer
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
@@ -41,8 +39,25 @@ object AppModule {
 
     @Provides
     @Singleton
+    @Named("songs")
+    fun provideTopSongsSearchApi(): Retrofit {
+        val gsonBuilder = GsonBuilder()
+        gsonBuilder.registerTypeAdapter(SongsSearchResponse::class.java, SongsJsonDeserializer())
+        return Retrofit.Builder()
+            .baseUrl(ApiConstants.BASE_URL_TOP_WEEKLY)
+            .addConverterFactory(GsonConverterFactory.create(gsonBuilder.create()))
+            .build()
+    }
+
+    @Provides
+    @Singleton
     fun provideArtistsSearchApi(@Named("artists") retrofit: Retrofit): ArtistsSearchApi =
         retrofit.create(ArtistsSearchApi::class.java)
+
+    @Provides
+    @Singleton
+    fun provideSongsSearchApi(@Named("songs") retrofit: Retrofit): SongsSearchApi =
+        retrofit.create(SongsSearchApi::class.java)
 
     @Provides
     @Singleton
