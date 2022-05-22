@@ -1,22 +1,22 @@
 package com.avidprogrammers.parkmusic.model.api.serializer
 
-import com.avidprogrammers.parkmusic.model.api.ArtistsSearchResponse
 import com.avidprogrammers.parkmusic.model.api.SongsSearchResponse
-import com.avidprogrammers.parkmusic.model.data.Artist
 import com.avidprogrammers.parkmusic.model.data.Songs
-import com.google.gson.*
-import java.lang.Exception
+import com.google.gson.JsonDeserializationContext
+import com.google.gson.JsonDeserializer
+import com.google.gson.JsonElement
+import com.google.gson.JsonObject
 import java.lang.reflect.Type
 
-class SongsJsonDeserializer: JsonDeserializer<SongsSearchResponse> {
+class SongsJsonDeserializer : JsonDeserializer<SongsSearchResponse> {
 
     override fun deserialize(
         json: JsonElement?,
         typeOfT: Type?,
         context: JsonDeserializationContext?
     ): SongsSearchResponse {
-            return SongsSearchResponse(
-                try {
+        return SongsSearchResponse(
+            try {
                 val jsonObject: JsonObject = json!!.asJsonObject
 
                 val resultJson = jsonObject.get("results").asJsonArray

@@ -13,7 +13,7 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 
 class SongsAdapter(
     private val onClickListener: OnItemClickListener
-): PagingDataAdapter<Songs, SongsAdapter.SongsViewHolder>(diffCallback) {
+) : PagingDataAdapter<Songs, SongsAdapter.SongsViewHolder>(diffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SongsViewHolder {
         val binding =

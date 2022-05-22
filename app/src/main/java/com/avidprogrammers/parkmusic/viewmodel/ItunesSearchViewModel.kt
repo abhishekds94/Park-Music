@@ -10,7 +10,7 @@ import com.avidprogrammers.parkmusic.model.data.ItunesSearchRepository
 
 class ItunesSearchViewModel @ViewModelInject constructor(
     private val repository: ItunesSearchRepository
-): ViewModel() {
+) : ViewModel() {
 
     private val currentQuery = MutableLiveData(DEFAULT_QUERY)
 
@@ -18,7 +18,7 @@ class ItunesSearchViewModel @ViewModelInject constructor(
         repository.getSearchResults(it).cachedIn(viewModelScope)
     }
 
-    fun searchResults(query: String){
+    fun searchResults(query: String) {
         currentQuery.value = query
     }
 

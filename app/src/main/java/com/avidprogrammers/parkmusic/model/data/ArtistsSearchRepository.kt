@@ -18,7 +18,7 @@ class ArtistsSearchRepository @Inject constructor(
                 maxSize = 100,
                 enablePlaceholders = false
             ),
-            pagingSourceFactory = { ArtistsPagingSource (artistsSearchApi) }
+            pagingSourceFactory = { ArtistsPagingSource(artistsSearchApi) }
         )
 
 }

@@ -8,13 +8,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.avidprogrammers.parkmusic.R
 import com.avidprogrammers.parkmusic.databinding.ItemArtistsBinding
 import com.avidprogrammers.parkmusic.model.data.Artist
-import com.avidprogrammers.parkmusic.model.data.ItunesSearch
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 
 class ArtistsAdapter(
     private val onClickListener: OnItemClickListener
-): PagingDataAdapter<Artist, ArtistsAdapter.ArtistViewHolder>(diffCallback) {
+) : PagingDataAdapter<Artist, ArtistsAdapter.ArtistViewHolder>(diffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArtistViewHolder {
         val binding =

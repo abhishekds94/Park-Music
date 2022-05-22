@@ -7,4 +7,5 @@
     <string name="query_no_results">No results found for this query</string>
     <string name="about_song">About Song</string>
     <string name="song_description">Song Description</string>
+    <string name="search">Search</string>
 </resources>

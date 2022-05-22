@@ -15,4 +15,4 @@ data class Songs(
     val primaryGenreName: String,
     val shortDescription: String,
     val longDescription: String
-): Parcelable
+) : Parcelable

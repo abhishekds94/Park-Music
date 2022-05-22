@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     android:layout_margin="5dp"
     android:gravity="center"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
         android:layout_width="100dp"
@@ -16,10 +16,10 @@
 
         <ImageView
             android:id="@+id/image_view"
-            android:layout_height="match_parent"
             android:layout_width="match_parent"
-            tools:src="@mipmap/ic_launcher_round"
-            android:scaleType="centerCrop"/>
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            tools:src="@mipmap/ic_launcher_round" />
 
     </androidx.cardview.widget.CardView>
 
@@ -27,11 +27,11 @@
         android:id="@+id/artistName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Image Dragons"
+        android:layout_gravity="center"
         android:layout_marginTop="5dp"
-        android:textColor="#fff"
-        tools:textColor="#000"
         android:fontFamily="@font/poppins_medium"
-        android:layout_gravity="center"/>
+        android:textColor="#fff"
+        tools:text="Image Dragons"
+        tools:textColor="#000" />
 
 </LinearLayout>

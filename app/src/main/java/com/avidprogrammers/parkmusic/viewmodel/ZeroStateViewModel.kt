@@ -15,7 +15,7 @@ import com.avidprogrammers.parkmusic.model.data.SongsSearchRepository
 class ZeroStateViewModel @ViewModelInject constructor(
     private val repository: ArtistsSearchRepository,
     private val repositorySongs: SongsSearchRepository
-): ViewModel() {
+) : ViewModel() {
 
     val artists: LiveData<PagingData<Artist>> by lazy {
         repository.getArtists().liveData.cachedIn(viewModelScope)

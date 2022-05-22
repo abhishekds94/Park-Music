@@ -1,34 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:id="@+id/nav_graph"
-app:startDestination="@id/zeroFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/zeroFragment">
 
-<fragment
-    android:id="@+id/searchFragment"
-    android:name="com.avidprogrammers.parkmusic.view.search.ItunesSearchFragment"
-    tools:layout="@layout/fragment_search">
-    <action
-        android:id="@+id/action_searchFragment_to_detailsFragment"
-        app:destination="@id/detailsFragment" />
-    <argument app:argType="string"
-        android:name="query" />
-</fragment>
-<fragment
-    android:id="@+id/detailsFragment"
-    android:name="com.avidprogrammers.parkmusic.view.details.DetailsFragment"
-    tools:layout="@layout/fragment_details">
-    <argument
-        android:name="search"
-        app:argType="com.avidprogrammers.parkmusic.model.data.ItunesSearch" />
-</fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.avidprogrammers.parkmusic.view.search.ItunesSearchFragment"
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/action_searchFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+        <argument
+            android:name="query"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.avidprogrammers.parkmusic.view.details.DetailsFragment"
+        tools:layout="@layout/fragment_details">
+        <argument
+            android:name="search"
+            app:argType="com.avidprogrammers.parkmusic.model.data.ItunesSearch" />
+    </fragment>
     <fragment
         android:id="@+id/zeroFragment"
         android:name="com.avidprogrammers.parkmusic.view.zeroState.ZeroStateFragment"
         tools:layout="@layout/fragment_zero_state">
         <action
             android:id="@+id/toSearchFragment"
-            app:destination="@id/searchFragment"/>
+            app:destination="@id/searchFragment" />
     </fragment>
 </navigation>

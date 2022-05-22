@@ -17,7 +17,7 @@ class ItunesSearchRepository @Inject constructor(private val itunesSearchApi: It
                 maxSize = 100,
                 enablePlaceholders = false
             ),
-            pagingSourceFactory = { ItunesPagingSource (itunesSearchApi, query) }
+            pagingSourceFactory = { ItunesPagingSource(itunesSearchApi, query) }
         ).liveData
 
 }

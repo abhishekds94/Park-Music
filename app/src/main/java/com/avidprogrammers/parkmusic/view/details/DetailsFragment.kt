@@ -67,7 +67,8 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
                 .withZone(ZoneId.of("UTC"))
                 .format(Instant.ofEpochMilli(trackTimeVal))
 
-            val parsedDate = LocalDateTime.parse(search.releaseDate, DateTimeFormatter.ISO_DATE_TIME)
+            val parsedDate =
+                LocalDateTime.parse(search.releaseDate, DateTimeFormatter.ISO_DATE_TIME)
             val formattedDate = parsedDate.format(DateTimeFormatter.ofPattern("MM/dd/yyyy"))
 
             trackName.text = search.trackName ?: "N/A"

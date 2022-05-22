@@ -10,7 +10,7 @@ private const val ITUNES_STARTING_PAGE_INDEX = 1
 class ItunesPagingSource(
     private val itunesSearchApi: ItunesSearchApi,
     private val query: String
-): PagingSource<Int, ItunesSearch>() {
+) : PagingSource<Int, ItunesSearch>() {
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, ItunesSearch> {
         val position = params.key ?: ITUNES_STARTING_PAGE_INDEX
@@ -19,16 +19,20 @@ class ItunesPagingSource(
             val response = itunesSearchApi.searchResults(query, position, params.loadSize)
             val search = response.results
 
-            search ?: return LoadResult.Page(emptyList(), prevKey = if (position == ITUNES_STARTING_PAGE_INDEX) null else position - 1, nextKey = null)
+            search ?: return LoadResult.Page(
+                emptyList(),
+                prevKey = if (position == ITUNES_STARTING_PAGE_INDEX) null else position - 1,
+                nextKey = null
+            )
 
             LoadResult.Page(
                 data = search,
                 prevKey = if (position == ITUNES_STARTING_PAGE_INDEX) null else position - 1,
                 nextKey = if (search.isEmpty()) null else position + 1
             )
-        } catch (exception: IOException){
+        } catch (exception: IOException) {
             LoadResult.Error(exception)
-        } catch (exception: HttpException){
+        } catch (exception: HttpException) {
             LoadResult.Error(exception)
         }
     }

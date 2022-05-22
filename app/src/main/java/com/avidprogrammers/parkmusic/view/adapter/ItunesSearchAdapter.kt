@@ -5,11 +5,11 @@ import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.avidprogrammers.parkmusic.R
 import com.avidprogrammers.parkmusic.databinding.ItemItunesSearchBinding
 import com.avidprogrammers.parkmusic.model.data.ItunesSearch
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 
 class ItunesSearchAdapter(private val listener: OnItemClickListener) :
     PagingDataAdapter<ItunesSearch, ItunesSearchAdapter.SearchViewHolder>(SEARCH_COMPARATOR) {

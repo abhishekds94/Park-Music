@@ -6,15 +6,15 @@ import com.google.gson.*
 import java.lang.Exception
 import java.lang.reflect.Type
 
-class ArtistJsonDeserializer: JsonDeserializer<ArtistsSearchResponse> {
+class ArtistJsonDeserializer : JsonDeserializer<ArtistsSearchResponse> {
 
     override fun deserialize(
         json: JsonElement?,
         typeOfT: Type?,
         context: JsonDeserializationContext?
     ): ArtistsSearchResponse {
-            return ArtistsSearchResponse(
-                try {
+        return ArtistsSearchResponse(
+            try {
                 val jsonObject: JsonObject = json!!.asJsonObject
 
                 val resultJson = jsonObject.get("results").asJsonArray

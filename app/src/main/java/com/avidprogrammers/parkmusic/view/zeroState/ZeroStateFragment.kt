@@ -23,7 +23,8 @@ import com.avidprogrammers.parkmusic.viewmodel.ZeroStateViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ZeroStateFragment: Fragment(R.layout.fragment_zero_state), ArtistsAdapter.OnItemClickListener, SongsAdapter.OnItemClickListener {
+class ZeroStateFragment : Fragment(R.layout.fragment_zero_state),
+    ArtistsAdapter.OnItemClickListener, SongsAdapter.OnItemClickListener {
 
     private val viewModel by viewModels<ZeroStateViewModel>()
     private val viewModelSongs by viewModels<ZeroStateViewModel>()
@@ -43,7 +44,8 @@ class ZeroStateFragment: Fragment(R.layout.fragment_zero_state), ArtistsAdapter.
 
         binding.apply {
             recyclerViewArtists.setHasFixedSize(true)
-            recyclerViewArtists.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL ,false)
+            recyclerViewArtists.layoutManager =
+                LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             recyclerViewArtists.itemAnimator = null
             recyclerViewArtists.adapter = adapterArtist.withLoadStateHeaderAndFooter(
                 header = ItunesSearchLoadStateAdapter { adapterArtist.retry() },
@@ -84,7 +86,8 @@ class ZeroStateFragment: Fragment(R.layout.fragment_zero_state), ArtistsAdapter.
                 // empty view
                 if (loadState.source.refresh is LoadState.NotLoading &&
                     loadState.append.endOfPaginationReached &&
-                    adapterArtist.itemCount < 1) {
+                    adapterArtist.itemCount < 1
+                ) {
                     recyclerViewArtists.isVisible = false
                     textViewEmpty.isVisible = true
                 } else {
@@ -103,7 +106,8 @@ class ZeroStateFragment: Fragment(R.layout.fragment_zero_state), ArtistsAdapter.
                 // empty view
                 if (loadState.source.refresh is LoadState.NotLoading &&
                     loadState.append.endOfPaginationReached &&
-                    adapterSongs.itemCount < 1) {
+                    adapterSongs.itemCount < 1
+                ) {
                     recyclerViewSongs.isVisible = false
                     textViewEmpty.isVisible = true
                 } else {
